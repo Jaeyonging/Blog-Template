@@ -29,7 +29,6 @@ const Topbar = ({ scrollContainerRef }: { scrollContainerRef: React.RefObject<HT
         setIsOpen(false);
     };
 
-    // 스크롤 이벤트 감지 (활성화)
     useEffect(() => {
         if (!scrollContainerRef.current) return;
 
@@ -64,19 +63,14 @@ const Topbar = ({ scrollContainerRef }: { scrollContainerRef: React.RefObject<HT
             </div>
 
             <div
-                className={`absolute top-[60px] left-0 flex flex-col w-full bg-black text-white border-b-2 border-gray-300 transition-all text-[20px] duration-300 ease-in-out transform z-40 ${
-                    isOpen ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-2 pointer-events-none'
-                }`}
-            >
+                className={`absolute top-[60px] left-0 flex flex-col w-full bg-black text-white border-b-2 border-gray-300 transition-all text-[20px] duration-300 ease-in-out transform z-40 ${isOpen ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-2 pointer-events-none'}`}>
                 <span className="p-2 hover:bg-gray-200 cursor-pointer" onClick={() => handleClick('/blogs')}>Blog</span>
-                <span className="p-2 hover:bg-gray-200 cursor-pointer" onClick={() => handleClick('/about')}>About</span>
+                <span className="p-2 hover:bg-gray-200 cursor-pointer" onClick={() => handleClick('/portfolio')}>Portfolio</span>
                 <span className="p-2 hover:bg-gray-200 cursor-pointer" onClick={() => handleClick('/contact')}>Contact</span>
             </div>
 
-            {/* 메뉴 오버레이 */}
             {isOpen && (
-                <div
-                    className="fixed top-0 left-0 w-full h-full bg-black opacity-30 z-10"
+                <div className="fixed top-0 left-0 w-full h-full bg-black opacity-30 z-10"
                     onClick={() => setIsOpen(false)}
                 />
             )}
