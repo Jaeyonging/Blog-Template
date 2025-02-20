@@ -7,6 +7,19 @@ export interface QTest {
     answer05: string
 }
 
+export const decodeEntities = (html: string) => {
+    let decoded = html;
+
+    // 첫 번째 디코딩
+    const textarea = document.createElement("textarea");
+    textarea.innerHTML = decoded;
+    decoded = textarea.value;
+
+    // 두 번째 디코딩 (완전한 HTML로 변환)
+    textarea.innerHTML = decoded;
+    return textarea.value;
+};
+
 export const calculateSize = (size: number) => {
     if (typeof size !== 'number' || isNaN(size)) {
         return 'Invalid size';
