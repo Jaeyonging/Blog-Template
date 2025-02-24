@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { ErrorBoundary } from "react-error-boundary";
 import { ErrorFallback } from "./component/ErrorFallback";
-import Contact from "./routes/Contact";
 import BottomBar from "./component/Common/BottomBar";
 import Topbar from "./component/Common/Topbar";
 import Blogs from "./routes/Blogs";
@@ -12,6 +11,7 @@ import ScrollToTop from "./component/Common/ScrollToTop";
 import SplashLoading from "./component/Common/SplashLoading";
 import Home from "./routes/Home";
 import Portfolio from "./routes/Portfolio";
+import Visitor from "./routes/Visitor";
 
 function App() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -28,7 +28,7 @@ function App() {
               <Route path="/blogs" element={<Blogs />} />
               <Route path="/blog/:title" element={<Blog />} />
               <Route path="/portfolio" element={<Portfolio />} />
-              <Route path="/contact" element={<Contact />} />
+              <Route path="/visitor" element={<Visitor />} />
             </Routes>
           </div>
         </Suspense>
